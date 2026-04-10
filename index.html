@@ -18,11 +18,12 @@
     }
     .comic-image {
       width: 100%;
+      height: 220px;
+      object-fit: cover;
       margin-top: 12px;
       border-radius: 14px;
       display: block;
       box-shadow: 0 4px 12px rgba(91, 58, 41, 0.12);
-      object-fit: cover;
     }
      .character-image {
       width: 100%;
@@ -160,8 +161,15 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+    
+    .card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .card {
@@ -364,6 +372,7 @@
 
       <div class="act-block">
         <h3>Act 1: Flirting, Fighting, and Fake News 调情、斗嘴与假消息</h3>
+        <h3>第一幕：调情、斗嘴与假消息</h3>
         <div class="card-grid">
           <div class="card">
             <div class="scene-tag">Scene 1</div>
@@ -396,7 +405,8 @@
       </div>
 
       <div class="act-block">
-        <h3>Act 2: Masks, Matchmaking, and Mischief 面具、撮合与阴谋</h3>
+        <h3>Act 2: Masks, Matchmaking, and Mischief</h3>
+        <h3>第二幕：面具、撮合与阴谋</h3>
         <div class="card-grid">
           <div class="card">
             <div class="scene-tag">Scene 1</div>
@@ -432,6 +442,7 @@
 
       <div class="act-block">
         <h3>Act 3: Tricks, Traps, and a Coming Storm 戏耍、圈套与风暴将至</h3>
+        <h3>第三幕：戏耍、圈套与风暴将至</h3>
         <div class="card-grid">
           <div class="card">
             <div class="scene-tag">Scene 1</div>
@@ -483,6 +494,7 @@
 
       <div class="act-block">
         <h3>Act 4: Wedding, Public Shaming, and Hidden Truth 婚礼、公开羞辱与真相潜伏</h3>
+        <h3>第四幕：婚礼、公开羞辱与真相潜伏</h3>
         <div class="card-grid">
           <div class="card">
             <div class="scene-tag">Scene 1</div>
@@ -507,6 +519,7 @@
 
       <div class="act-block">
         <h3>Act 5: Confessions, Comebacks, and Second Chances 坦白、反转与第二次机会</h3>
+        <h3>第五幕：坦白、反转与第二次机会</h3>
         <div class="card-grid">
           <div class="card">
             <div class="scene-tag">Scene 1</div>
