@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Much Ado About Nothing</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(to bottom, #efe2c4, #e2c89b);
+      color: #5b3a29;
+      min-height: 100vh;
+    }
+
+    .background-texture {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        radial-gradient(circle at 20% 20%, #ffffff 0, transparent 25%),
+        radial-gradient(circle at 80% 30%, #ffffff 0, transparent 20%),
+        radial-gradient(circle at 50% 80%, #ffffff 0, transparent 20%);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .home-title {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .home-title h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .home-title p {
+      margin-top: 12px;
+      font-size: 1.3rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      max-width: 760px;
+      margin: 18px auto 0;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .nav-button {
+      background: rgba(255, 248, 235, 0.72);
+      border: 1px solid rgba(91, 58, 41, 0.18);
+      border-radius: 22px;
+      padding: 26px 18px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #5b3a29;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 248, 235, 0.95);
+      box-shadow: 0 10px 28px rgba(91, 58, 41, 0.14);
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+
+    .section-header p {
+      margin: 10px 0 0;
+      max-width: 850px;
+      line-height: 1.8;
+    }
+
+    .back-btn {
+      border: none;
+      background: #6e4a36;
+      color: #f7ead2;
+      padding: 12px 18px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-btn:hover {
+      opacity: 0.9;
+    }
+
+    .act-block {
+      margin-bottom: 40px;
+    }
+
+    .act-block h3 {
+      font-size: 1.9rem;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(91, 58, 41, 0.18);
+      padding-bottom: 8px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 250, 240, 0.78);
+      border: 1px solid rgba(91, 58, 41, 0.14);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+    }
+
+    .scene-tag {
+      display: inline-block;
+      background: #f2e4c6;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .card h4 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      line-height: 1.8;
+      margin: 0 0 12px;
+    }
+
+    .comic-box {
+      margin-top: 14px;
+      background: #f8edd8;
+      border: 1px dashed rgba(91, 58, 41, 0.2);
+      border-radius: 16px;
+      padding: 14px;
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .character-tags {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: #f2e4c6;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+    }
+
+    .quote-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .quote-item {
+      background: #fff8ec;
+      border-radius: 14px;
+      padding: 12px 14px;
+      line-height: 1.7;
+      border-left: 4px solid #8b5e3c;
+    }
+
+    .revision-layout {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 22px;
+    }
+
+    .quiz-question {
+      margin-bottom: 26px;
+      padding: 18px;
+      background: #f8edd8;
+      border-radius: 18px;
+    }
+
+    .quiz-question h4 {
+      margin-top: 0;
+      line-height: 1.7;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      margin-top: 10px;
+      border: 1px solid rgba(91, 58, 41, 0.15);
+      background: #fffaf1;
+      border-radius: 14px;
+      padding: 12px 14px;
+      cursor: pointer;
+      color: #5b3a29;
+      transition: background 0.2s ease, border 0.2s ease;
+    }
+
+    .option-btn:hover {
+      background: #fff4df;
+    }
+
+    .option-btn.correct {
+      background: #e4f5df;
+      border-color: #7aaf68;
+    }
+
+    .option-btn.wrong {
+      background: #f8dede;
+      border-color: #d68a8a;
+    }
+
+    .score-box {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .essay-box {
+      background: rgba(255, 250, 240, 0.78);
+      border: 1px solid rgba(91, 58, 41, 0.14);
+      border-radius: 22px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+    }
+
+    .essay-box h3 {
+      margin-top: 0;
+    }
+
+    .essay-item {
+      background: #f8edd8;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .revision-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .home-title h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-texture"></div>
+
+  <div class="container">
+    <section id="home" class="page active">
+      <div class="home-title">
+        <h1>Much Ado About Nothing</h1>
+        <p>莎士比亚《无事生非》复习网页</p>
+        <div class="subtitle">
+          A Shakespeare-inspired revision website with a beige parchment style, brown typography,
+          and dedicated sections for plot, characters, themes, and revision.
+        </div>
+      </div>
+
+      <div class="nav-grid">
+        <button class="nav-button" onclick="showPage('plot')">Plot Overview</button>
+        <button class="nav-button" onclick="showPage('characters')">Characters</button>
+        <button class="nav-button" onclick="showPage('themes')">Themes</button>
+        <button class="nav-button" onclick="showPage('revision')">Revision</button>
+      </div>
+    </section>
+
+    <section id="plot" class="page">
+      <div class="section-header">
+        <div>
+          <h2>Plot Overview</h2>
+          <p>
+            Scene by scene summaries from Act 1 to Act 5. Each scene includes a brief comic style teaser.
+            Later, you can replace these with actual illustrations, comics, or animations.
+          </p>
+        </div>
+        <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+      </div>
+
+      <div class="act-block">
+        <h3>Act 1</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="scene-tag">Scene 1</div>
+            <h4>Messina Welcomes the Soldiers</h4>
+            <p>Don Pedro, Claudio, Benedick, and their companions arrive in Messina after war. Claudio falls for Hero immediately, while Beatrice and Benedick resume their witty verbal battle.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🏰⚔️💘 Victory parade meets flirtation and roast battle.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 2</div>
+            <h4>Leonato Prepares</h4>
+            <p>Leonato hears of Claudio’s interest in Hero, preparing the household for courtship and marriage expectations.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 📜👀 Protective father radar activated.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 3</div>
+            <h4>Don John Begins Plotting</h4>
+            <p>Don John, resentful and bitter, decides to sabotage Claudio’s happiness and begins planning with Borachio and Conrade.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🖤🐍 Villain energy enters stage left.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act-block">
+        <h3>Act 2</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="scene-tag">Scene 1</div>
+            <h4>Masks, Confusion, and Matchmaking</h4>
+            <p>At the masquerade ball, Don John tricks Claudio into thinking Don Pedro is wooing Hero for himself. The lie is corrected, and a prank is planned to make Beatrice and Benedick fall in love.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🎭💃😵 Masked people making very bad assumptions.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 2</div>
+            <h4>The Villains Refine Their Scheme</h4>
+            <p>Don John and Borachio prepare the deception that will later ruin Hero’s wedding.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🕯️🗡️ Petty men building catastrophic drama.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 3</div>
+            <h4>Benedick Gets Tricked</h4>
+            <p>Benedick overhears a staged conversation and starts to believe that Beatrice is secretly in love with him.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🌳👂❤️ Bush hiding leads to emotional damage.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act-block">
+        <h3>Act 3</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="scene-tag">Scene 1</div>
+            <h4>Beatrice Gets Tricked Too</h4>
+            <p>Hero and Ursula stage a conversation so that Beatrice overhears claims that Benedick loves her.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🌿💌 Equal opportunity romantic manipulation.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 2</div>
+            <h4>Benedick Softens, Danger Grows</h4>
+            <p>Benedick begins changing under the influence of love, while Don John prepares Claudio and Don Pedro to misjudge Hero.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🌹😌 One man glows up, another walks into doom.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 3</div>
+            <h4>Dogberry and the Watch</h4>
+            <p>Dogberry leads the Watch with absurd confidence. Though comic and clumsy, they are close to uncovering the truth.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 👮📢 Chaos policing, somehow iconic.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 4</div>
+            <h4>Hero Before the Wedding</h4>
+            <p>Hero prepares for her wedding, unaware of the public humiliation that is about to happen.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 👰🌼 Calm before the emotional meteor strike.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 5</div>
+            <h4>Dogberry Misses the Moment</h4>
+            <p>Dogberry tries to tell Leonato urgent news, but his muddled speech and terrible timing prevent immediate action.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> ⏰🌀 Communication failed successfully.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act-block">
+        <h3>Act 4</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="scene-tag">Scene 1</div>
+            <h4>The Wedding Disaster</h4>
+            <p>Claudio publicly accuses Hero of unfaithfulness at the altar. Hero collapses. Friar Francis proposes pretending she is dead. Beatrice demands that Benedick prove his loyalty.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 💒💥😭 Wedding percent speedrun to emotional ruin.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 2</div>
+            <h4>The Truth Surfaces</h4>
+            <p>Dogberry’s Watch finally reveals Borachio’s confession and exposes Don John’s villainy.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🕵️‍♂️🫢 The clowns solve the case.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act-block">
+        <h3>Act 5</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="scene-tag">Scene 1</div>
+            <h4>Confrontation and Challenge</h4>
+            <p>Leonato and Antonio confront Claudio and Don Pedro. Benedick challenges Claudio, standing with Beatrice and justice.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> ⚔️😤 Angry elders and offended lovers unite.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 2</div>
+            <h4>Beatrice and Benedick Confess</h4>
+            <p>In one of the play’s tender moments, Beatrice and Benedick admit their love, though still in their witty style.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 💌😌 Romance, but still snarky.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 3</div>
+            <h4>Claudio Mourns</h4>
+            <p>Believing Hero dead, Claudio performs a public act of mourning and remorse.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🕯️💔 Regret has finally arrived.</div>
+          </div>
+          <div class="card">
+            <div class="scene-tag">Scene 4</div>
+            <h4>Truth, Forgiveness, and Marriage</h4>
+            <p>Hero is revealed alive, the truth is restored, and the play ends with celebration and marriages.</p>
+            <div class="comic-box"><strong>Comic teaser:</strong> 🎉💍🎭 Everybody gets closure and dancing.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="characters" class="page">
+      <div class="section-header">
+        <div>
+          <h2>Characters</h2>
+          <p>
+            Major character cards for revision. Later, you can add portraits, relationship lines,
+            or pop-up quote windows.
+          </p>
+        </div>
+        <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>Beatrice</h4>
+          <p><strong>Role:</strong> witty heroine</p>
+          <p>Brilliant, funny, independent, and emotionally courageous. Her wit is both shield and sword.</p>
+          <div class="character-tags">
+            <span class="tag">sharp-tongued</span>
+            <span class="tag">intelligent</span>
+            <span class="tag">independent</span>
+            <span class="tag">morally brave</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Benedick</h4>
+          <p><strong>Role:</strong> witty hero</p>
+          <p>A comic bachelor who begins by mocking love, then grows into someone loyal, sincere, and transformed.</p>
+          <div class="character-tags">
+            <span class="tag">playful</span>
+            <span class="tag">proud</span>
+            <span class="tag">loyal</span>
+            <span class="tag">transformative</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Hero</h4>
+          <p><strong>Role:</strong> young noblewoman</p>
+          <p>Gentle and quiet, but central to the play’s exploration of innocence, female reputation, and public shame.</p>
+          <div class="character-tags">
+            <span class="tag">gentle</span>
+            <span class="tag">obedient</span>
+            <span class="tag">wronged</span>
+            <span class="tag">symbolic</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Claudio</h4>
+          <p><strong>Role:</strong> young soldier</p>
+          <p>Romantic but impulsive. His flaws reveal how honour, masculinity, and public judgment can become destructive.</p>
+          <div class="character-tags">
+            <span class="tag">romantic</span>
+            <span class="tag">impressionable</span>
+            <span class="tag">status-conscious</span>
+            <span class="tag">flawed</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Don Pedro</h4>
+          <p><strong>Role:</strong> prince and matchmaker</p>
+          <p>Powerful and charming. He helps create the comedy, but also joins the false judgment against Hero.</p>
+          <div class="character-tags">
+            <span class="tag">charismatic</span>
+            <span class="tag">powerful</span>
+            <span class="tag">social architect</span>
+            <span class="tag">fallible</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Don John</h4>
+          <p><strong>Role:</strong> villain</p>
+          <p>Driven by resentment and alienation, Don John uses deception to ruin happiness and social harmony.</p>
+          <div class="character-tags">
+            <span class="tag">resentful</span>
+            <span class="tag">dishonest</span>
+            <span class="tag">isolated</span>
+            <span class="tag">destructive</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Dogberry</h4>
+          <p><strong>Role:</strong> comic constable</p>
+          <p>Absurd, confident, and linguistically chaotic. Accidentally one of the most important truth-finders in the play.</p>
+          <div class="character-tags">
+            <span class="tag">ridiculous</span>
+            <span class="tag">comic</span>
+            <span class="tag">malaprop-prone</span>
+            <span class="tag">useful chaos</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Leonato</h4>
+          <p><strong>Role:</strong> governor of Messina</p>
+          <p>A paternal authority figure whose responses reflect the pressures of honour, reputation, and social expectation.</p>
+          <div class="character-tags">
+            <span class="tag">respected</span>
+            <span class="tag">paternal</span>
+            <span class="tag">socially bound</span>
+            <span class="tag">reactive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="themes" class="page">
+      <div class="section-header">
+        <div>
+          <h2>Themes</h2>
+          <p>
+            Main themes in the play, each with a short explanation and grouped key quotes for revision.
+          </p>
+        </div>
+        <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>Love and Courtship</h4>
+          <p>The play contrasts shallow romantic performance with tested, intelligent love. Claudio and Hero reflect conventional courtship, while Beatrice and Benedick build something deeper.</p>
+          <div class="quote-list">
+            <div class="quote-item">“I do love nothing in the world so well as you: is not that strange?” — Benedick</div>
+            <div class="quote-item">“Speak low if you speak love.” — Don Pedro</div>
+            <div class="quote-item">“I had rather hear my dog bark at a crow than a man swear he loves me.” — Beatrice</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Appearance versus Reality</h4>
+          <p>Masks, overheard scenes, false accusations, and staged performances drive the entire play. Shakespeare keeps asking whether what people see can ever be trusted.</p>
+          <div class="quote-list">
+            <div class="quote-item">“One doth not know how much an ill word may empoison liking.” — Hero</div>
+            <div class="quote-item">“O, what men dare do! what men may do! what men daily do, not knowing what they do!” — Beatrice</div>
+            <div class="quote-item">“Let every eye negotiate for itself and trust no agent.” — Claudio</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Honour, Shame, and Reputation</h4>
+          <p>Public reputation shapes how people behave and how they judge others. Hero’s treatment shows how brutally female honour can be policed.</p>
+          <div class="quote-list">
+            <div class="quote-item">“O Hero! what a Hero hadst thou been.” — Claudio</div>
+            <div class="quote-item">“Death is the fairest cover for her shame.” — Friar Francis</div>
+            <div class="quote-item">“She knows the heat of a luxurious bed.” — Claudio</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Gender and Power</h4>
+          <p>The play explores obedience, chastity, masculine honour, and female constraint. Beatrice pushes hardest against the limits imposed on women.</p>
+          <div class="quote-list">
+            <div class="quote-item">“O that I were a man!” — Beatrice</div>
+            <div class="quote-item">“Kill Claudio.” — Beatrice</div>
+            <div class="quote-item">“Man is a giddy thing.” — Benedick</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Language, Wit, and Performance</h4>
+          <p>Speech in this play is social power. Language can wound, entertain, disguise, reveal intelligence, or completely derail a wedding.</p>
+          <div class="quote-list">
+            <div class="quote-item">“A bird of my tongue is better than a beast of yours.” — Beatrice</div>
+            <div class="quote-item">“Thou and I are too wise to woo peaceably.” — Benedick</div>
+            <div class="quote-item">“Comparisons are odorous.” — Dogberry</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="revision" class="page">
+      <div class="section-header">
+        <div>
+          <h2>Revision</h2>
+          <p>
+            A study section with quiz questions and essay prompts. Later, you can add flashcards,
+            sample paragraphs, or downloadable notes.
+          </p>
+        </div>
+        <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+      </div>
+
+      <div class="revision-layout">
+        <div class="essay-box">
+          <h3>Quiz</h3>
+          <div class="score-box">Current Score: <span id="score">0</span> / 4</div>
+
+          <div class="quiz-question">
+            <h4>1. Who tricks Benedick into believing Beatrice loves him?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Don John and Borachio</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">Don Pedro, Leonato, and Claudio</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Hero and Ursula</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Dogberry and the Watch</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>2. What causes Claudio to shame Hero at the wedding?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A forged letter</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A public confession</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">A staged deception at Hero’s window</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Beatrice’s accusation</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>3. Which character is most associated with malapropisms?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Benedick</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Borachio</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">Dogberry</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">Antonio</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>4. What is one major contrast in the play’s two love stories?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">One is political and one is magical</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">One is idealised and one is witty and tested</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">One is secret and one is illegal</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">One is tragic and one is supernatural</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="essay-box">
+            <h3>Essay Prompts</h3>
+            <div class="essay-item">“Much Ado About Nothing is a play in which wit reveals truth more effectively than sincerity.” Discuss.</div>
+            <div class="essay-item">How does Shakespeare use deception to create both comedy and crisis in Much Ado About Nothing?</div>
+            <div class="essay-item">To what extent is Beatrice the moral centre of the play?</div>
+            <div class="essay-item">Discuss the role of honour and reputation in shaping the treatment of Hero.</div>
+            <div class="essay-item">Compare the relationships of Claudio and Hero with Beatrice and Benedick.</div>
+          </div>
+
+          <div class="essay-box">
+            <h3>Later Upgrades</h3>
+            <div class="essay-item">Add bilingual notes for each act and scene</div>
+            <div class="essay-item">Add flashcards for themes and quotes</div>
+            <div class="essay-item">Add model essay paragraphs</div>
+            <div class="essay-item">Add real illustrations, GIFs, or mini comic panels</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    let score = 0;
+    const answeredQuestions = new WeakSet();
+
+    function checkAnswer(button, isCorrect) {
+      const questionBox = button.closest('.quiz-question');
+      if (answeredQuestions.has(questionBox)) return;
+
+      answeredQuestions.add(questionBox);
+
+      const buttons = questionBox.querySelectorAll('.option-btn');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        const onclickText = btn.getAttribute('onclick') || '';
+        if (onclickText.includes('true')) {
+          btn.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) {
+        score++;
+      } else {
+        button.classList.add('wrong');
+      }
+
+      document.getElementById('score').textContent = score;
+    }
+  </script>
+</body>
+</html>
