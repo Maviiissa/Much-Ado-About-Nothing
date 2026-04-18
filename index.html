@@ -31,46 +31,40 @@
 }
 
 .home-footer {
-  margin-top: 80px;
+  margin-top: 48px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .footer-center {
-  flex: 1;
   text-align: center;
-  font-size: 1.15rem;
-  font-weight: bold;
-  color: #003b9a;
+  font-size: 0.95rem;
+  font-weight: normal;
+  line-height: 1.6;
+  color: #5b3a29;
 }
 
-.footer-right {
-  display: flex;
-  gap: 18px;
-  align-items: flex-end;
+.footer-center div {
+  margin: 0;
 }
 
-.footer-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-}
-
-.footer-box img {
-  max-width: 110px;
-  max-height: 110px;
+.footer-qr img {
+  width: 120px;
+  height: auto;
   display: block;
 }
 
-.footer-box.qr img {
-  max-width: 120px;
-  max-height: 120px;
-}
+@media (max-width: 900px) {
+  .footer-qr img {
+    width: 96px;
+  }
 
+  .footer-center {
+    font-size: 0.85rem;
+  }
+}
 @media (max-width: 900px) {
   .top-logo-box {
     width: 240px;
@@ -444,18 +438,18 @@
         <button class="nav-button" onclick="showPage('revision')">Revision</button>
       </div>
 
-      <div class="home-footer">
-        <div class="footer-center">BEACON EDUCATION. Copyright@2026</div>
-
-        <div class="footer-right">
-          <div class="footer-box">
-            <img src="images/beaconwatermark.jpg" alt="Beacon Education">
-          </div>
-          <div class="footer-box qr">
-            <img src="images/wechatqr.jpg" alt="QR Code">
-          </div>
-        </div>
+         <div class="home-footer">
+      <img src="images/beaconwatermark.jpg" alt="Beacon Education">
+      
+      <div class="footer-center">
+        <div>BEACON EDUCATION</div>
+        <div>Copyright@2026</div>
       </div>
+    
+      <div class="footer-qr">
+        <img src="images/wechatqr.jpg" alt="QR Code">
+      </div>
+    </div>
     </section>
 
     <section id="plot" class="page">
