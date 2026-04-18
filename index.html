@@ -15,17 +15,14 @@
     color: #5b3a29;
     min-height: 100vh;
   }
-  .top-logo-box {
-    width: 320px;
-    margin: 0 auto 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 18px 12px;
-  }
+ .top-logo-box {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
 
 .top-logo-box img {
-  max-width: 180px;
+  width: 180px;
   height: auto;
   display: block;
 }
@@ -35,14 +32,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+}
+
+.footer-qr img {
+  width: 110px;
+  height: auto;
+  display: block;
 }
 
 .footer-center {
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: normal;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #5b3a29;
 }
 
@@ -50,48 +53,17 @@
   margin: 0;
 }
 
-.footer-qr img {
-  width: 120px;
-  height: auto;
-  display: block;
-}
-
 @media (max-width: 900px) {
-  .footer-qr img {
-    width: 96px;
-  }
-
-  .footer-center {
-    font-size: 0.85rem;
-  }
-}
-@media (max-width: 900px) {
-  .top-logo-box {
-    width: 240px;
-    padding: 14px 10px;
-  }
-
   .top-logo-box img {
-    max-width: 130px;
+    width: 130px;
   }
 
-  .home-footer {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+  .footer-qr img {
+    width: 90px;
   }
 
   .footer-center {
-    order: 2;
-  }
-
-  .footer-right {
-    order: 1;
-  }
-
-  .footer-box {
-    width: 130px;
-    height: 130px;
+    font-size: 0.82rem;
   }
 }
     .comic-image {
@@ -418,40 +390,37 @@
   <div class="background-texture"></div>
   <div class="container">
     <section id="home" class="page active">
-      <div class="home-title">
-        <div class="top-logo-box">
-          <img src="images/beaconwatermark.jpg" alt="Beacon Education">
-        </div>
-
-        <h1>Much Ado About Nothing</h1>
-        <p>莎士比亚《无事生非》复习网页</p>
-        <div class="subtitle">
-          A Shakespeare-inspired revision website with sections for plot, characters, themes, and revision.
-          It is for your Revision Only.
-        </div>
-      </div>
-
-      <div class="nav-grid">
-        <button class="nav-button" onclick="showPage('plot')">Plot Overview</button>
-        <button class="nav-button" onclick="showPage('characters')">Characters</button>
-        <button class="nav-button" onclick="showPage('themes')">Themes</button>
-        <button class="nav-button" onclick="showPage('revision')">Revision</button>
-      </div>
-
-         <div class="home-footer">
+  <div class="home-title">
+    <div class="top-logo-box">
       <img src="images/beaconwatermark.jpg" alt="Beacon Education">
-      
-      <div class="footer-center">
-        <div>BEACON EDUCATION</div>
-        <div>Copyright@2026</div>
-      </div>
-    
-      <div class="footer-qr">
-        <img src="images/wechatqr.jpg" alt="QR Code">
-      </div>
     </div>
-    </section>
 
+    <h1>Much Ado About Nothing</h1>
+    <p>莎士比亚《无事生非》复习网页</p>
+    <div class="subtitle">
+      A Shakespeare-inspired revision website with sections for plot, characters, themes, and revision.
+      It is for your Revision Only.
+    </div>
+  </div>
+
+  <div class="nav-grid">
+    <button class="nav-button" onclick="showPage('plot')">Plot Overview</button>
+    <button class="nav-button" onclick="showPage('characters')">Characters</button>
+    <button class="nav-button" onclick="showPage('themes')">Themes</button>
+    <button class="nav-button" onclick="showPage('revision')">Revision</button>
+  </div>
+
+  <div class="home-footer">
+    <div class="footer-qr">
+      <img src="images/wechatqr.jpg" alt="QR Code">
+    </div>
+
+    <div class="footer-center">
+      <div>BEACON EDUCATION</div>
+      <div>Copyright@2026</div>
+    </div>
+  </div>
+</section>
     <section id="plot" class="page">
       <div class="section-header">
         <div>
