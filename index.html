@@ -360,6 +360,117 @@
       line-height: 1.7;
     }
 
+
+    .section-subtitle {
+      margin: 34px 0 16px;
+      font-size: 1.5rem;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.7;
+      display: grid;
+      gap: 6px;
+    }
+
+    .act-summary-list {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.8;
+      display: grid;
+      gap: 8px;
+    }
+
+    .accordion-group {
+      display: grid;
+      gap: 14px;
+    }
+
+    .accordion {
+      background: rgba(255, 250, 240, 0.78);
+      border: 1px solid rgba(91, 58, 41, 0.14);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+    }
+
+    .accordion summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .accordion-content {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+      line-height: 1.75;
+    }
+
+
+    .device-intro {
+      background: rgba(255, 250, 240, 0.78);
+      border: 1px solid rgba(91, 58, 41, 0.14);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 12px 0 14px;
+      line-height: 1.7;
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+    }
+
+    .flip-note {
+      margin: 6px 0 14px;
+      font-size: 0.92rem;
+      opacity: 0.9;
+    }
+
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+      min-height: 260px;
+      cursor: pointer;
+      border-radius: 18px;
+      outline: none;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card.is-flipped .flip-card-inner,
+    .flip-card:focus-visible .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 250, 240, 0.9);
+      border: 1px solid rgba(91, 58, 41, 0.14);
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: auto;
+      line-height: 1.65;
+    }
+
+    .flip-back { transform: rotateY(180deg); }
+    .flip-hint { font-size: 0.82rem; opacity: 0.8; margin-top: 12px; display: inline-block; }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -408,6 +519,7 @@
     <button class="nav-button" onclick="showPage('characters')">Characters</button>
     <button class="nav-button" onclick="showPage('themes')">Themes</button>
     <button class="nav-button" onclick="showPage('revision')">Revision</button>
+    <button class="nav-button" onclick="showPage('exam-notes')">Literary Devices</button>
   </div>
 
   <div class="home-footer">
@@ -910,6 +1022,93 @@
         </div>
       </div>
     </section>
+
+    <section id="exam-notes" class="page">
+      <div class="section-header">
+        <div>
+          <h2>Much Ado About Nothing — Literary Devices</h2>
+          <p>Key motifs, symbols, allusions, and dramatic techniques for Literature revision.</p>
+        </div>
+        <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+      </div>
+
+      <h3 class="section-subtitle">Literary Devices</h3>
+      <p class="flip-note"><strong>Click a card to reveal examples and essay use.</strong></p>
+
+      <div class="device-intro"><strong>Motifs:</strong> Motifs are recurring structures, contrasts, and literary devices that help develop major themes. <br>Motif 是不断出现的结构、意象、场面、动作、符号或文学手法。</div>
+      <div class="flip-grid">
+        <button class="flip-card" type="button" aria-label="Public Shaming motif card" aria-pressed="false">
+          <div class="flip-card-inner"><div class="flip-face"><h4>Public Shaming 公开羞辱</h4><p>Reputation and honour are publicly judged and damaged, often beyond real moral guilt.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Hero is denounced at the wedding as a “rotten orange”; social shame and patriarchal expectations magnify damage to female reputation.</p><p><strong>Essay use:</strong> Honour, reputation, patriarchy, gendered shame.</p><p><strong>Related themes:</strong> Honour; Gender; Appearance vs Reality.</p></div></div>
+        </button>
+        <button class="flip-card" type="button" aria-label="Noting motif card" aria-pressed="false">
+          <div class="flip-card-inner"><div class="flip-face"><h4>Noting</h4><p>“Noting” means seeing/hearing, but also writing, recording, and misreading others.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Beatrice/Benedick are tricked through staged overhearing; Dogberry’s watch records overheard evidence and exposes conspiracy.</p><p><strong>Essay use:</strong> Characters act on what they think they saw/heard.</p><p><strong>Related themes:</strong> Trickery and Deception; Appearance vs Reality.</p></div></div>
+        </button>
+        <button class="flip-card" type="button" aria-label="Fashion motif card" aria-pressed="false">
+          <div class="flip-card-inner"><div class="flip-face"><h4>Fashion</h4><p>Identity is presented, disguised, and moulded by others through language, masks, and behaviour.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Beatrice/Benedick self-fashion as anti-marriage, then refashion after overhearing; Claudio/Don Pedro “fashion” Hero as ideal; Hero’s silence is passive self-fashioning.</p><p><strong>Essay use:</strong> Identity, appearance vs reality, gender roles, social performance.</p><p><strong>Related themes:</strong> Appearance vs Reality; Gender; Love and Marriage.</p></div></div>
+        </button>
+        <button class="flip-card" type="button" aria-label="Dramatic Irony motif card" aria-pressed="false">
+          <div class="flip-card-inner"><div class="flip-face"><h4>Dramatic Irony</h4><p>Audience knows what characters do not, creating comedy, tension, and tragedy.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> 1.2 Antonio’s mishearing; 2.1 masked deceptions; 2.3/3.1 staged tricks; 3.2 chamber window; 4.1 Hero’s innocence; 5.1–5.3 Hero’s feigned death.</p><p><strong>Essay use:</strong> Explain how Shakespeare builds comedy, tension, and crisis.</p><p><strong>Related themes:</strong> Deception; Honour; Appearance vs Reality.</p></div></div>
+        </button>
+      </div>
+
+      <div class="device-intro"><strong>Symbols:</strong> Symbols are recurring objects, images, or details that carry deeper meanings beyond their literal sense. <br>Symbol 象征是通过具体物象承载更深层主题、人物心理或社会价值的文学手法。</div>
+      <div class="flip-grid">
+        <button class="flip-card" type="button" aria-label="Taming of Wild Animals symbol card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Taming of Wild Animals</h4><p>Wildness being tamed symbolises social and romantic “discipline”.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Beatrice “tames” her wild heart (3.1), with falconry/bull/yoke imagery of submission.</p><p><strong>Essay use:</strong> Gender roles, marriage, patriarchal expectations.</p><p><strong>Related themes:</strong> Love and Marriage; Gender.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="War symbol card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>War</h4><p>War language marks love and reputation as conflict zones.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> “...thy slander hath gone through and through her heart” (5.1) turns emotional damage into weapon imagery.</p><p><strong>Essay use:</strong> Love, honour, emotional violence.</p><p><strong>Related themes:</strong> Honour; Love and Marriage.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Horns symbol card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Horns</h4><p>Cuckold’s horns symbolise male anxiety over control and fidelity.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Men repeatedly joke about/fear being cuckolded.</p><p><strong>Essay use:</strong> Insecure masculinity and gendered honour.</p><p><strong>Related themes:</strong> Gender; Honour.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Rotten Orange symbol card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Rotten Orange</h4><p>Surface purity hiding supposed corruption.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Claudio’s “rotten orange” (4.1) frames Hero as outwardly pure but inwardly corrupt.</p><p><strong>Essay use:</strong> Public shaming, female chastity, appearance vs reality.</p><p><strong>Related themes:</strong> Honour; Appearance vs Reality; Gender.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Chamber Window symbol card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Chamber Window</h4><p>Seeing does not equal truth. 眼见不等于真相。</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Shadowy window evidence (3.2) is treated as certainty, proving visual ambiguity can mislead.</p><p><strong>Essay use:</strong> Misinterpretation, deception, visual evidence.</p><p><strong>Related themes:</strong> Deception; Appearance vs Reality.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Mask and Masquerade symbol card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Mask / Masquerade</h4><p>Masks symbolise disguise, performance, and social identity.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> The masque stages identity-fashioning and hidden insecurity, while observers “note” only façades.</p><p><strong>Essay use:</strong> Identity, self-fashioning, hidden insecurity.</p><p><strong>Related themes:</strong> Appearance vs Reality; Gender; Deception.</p></div></div></button>
+      </div>
+
+      <div class="device-intro"><strong>Allusions:</strong> Allusions are brief references to mythological, biblical, or cultural figures that add meaning, irony, or thematic depth. <br>典故是对神话、圣经或文化人物的引用，用来增强讽刺、主题和人物塑造。</div>
+      <div class="flip-grid">
+        <button class="flip-card" type="button" aria-label="Hercules allusion card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Hercules 大力神</h4><p>Masculine strength; heroic ideal under comic pressure.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Benedick (2.3) and Beatrice (4.1) use Hercules mockingly to puncture male bravado.</p><p><strong>Essay use:</strong> Male ego, wit, weakening of heroic ideals.</p><p><strong>Related themes:</strong> Gender; Language and Performance.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Cupid allusion card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Cupid 丘比特</h4><p>Love strikes suddenly and irrationally.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Benedick/Beatrice invoke Cupid around mockery, attraction, and emotional transformation.</p><p><strong>Essay use:</strong> Love disrupts self-control and reshapes identity.</p><p><strong>Related themes:</strong> Love and Marriage; Identity.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Adam allusion card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Adam 亚当</h4><p>Ordinary man; anti-ideal masculinity.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Beatrice (2.1) on “Adam’s sons” ironically frames her anti-marriage self-fashioning.</p><p><strong>Essay use:</strong> Question idealised masculinity and social performance.</p><p><strong>Related themes:</strong> Gender; Appearance vs Reality.</p></div></div></button>
+        <button class="flip-card" type="button" aria-label="Diana allusion card" aria-pressed="false"><div class="flip-card-inner"><div class="flip-face"><h4>Dian / Diana 狄安娜</h4><p>Goddess of chastity; impossible purity standard.</p><span class="flip-hint">Click to flip</span></div><div class="flip-face flip-back"><p><strong>Example:</strong> Claudio (4.1) invokes Diana while accusing Hero, weaponising chastity language.</p><p><strong>Essay use:</strong> Gendered honour, female chastity, patriarchal moral standards.</p><p><strong>Related themes:</strong> Honour; Gender; Public shame.</p></div></div></button>
+      </div>
+
+      <h3 class="section-subtitle">Summary of the Acts</h3>
+      <div class="card">
+        <h4>Comedy Convention Structure (Opening → Happy Ending)</h4>
+        <ul class="act-summary-list">
+          <li><strong>Act 1 (Opening):</strong> Dot-point placeholder for introduction to Messina, social dynamics, and early misunderstandings.</li>
+          <li><strong>Act 2 (Mistaken identity / Misunderstanding):</strong> Dot-point placeholder for masks, misreading signals, and setup for deception.</li>
+          <li><strong>Act 3 (Conflict builds):</strong> Dot-point placeholder for staged conversations and rising dramatic irony.</li>
+          <li><strong>Act 4 (Conflict peak):</strong> Dot-point placeholder for public shaming and crisis of honour.</li>
+          <li><strong>Act 5 (Resolution and Reconciliation → Happy Ending):</strong> Dot-point placeholder for truth revealed, restored relationships, and comic closure.</li>
+        </ul>
+      </div>
+
+      <h3 class="section-subtitle">Exam Themes</h3>
+      <div class="card-grid">
+        <div class="card"><h4>The World of the Play / Messina</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Love and Marriage</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Appearance vs Reality</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Honour</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Trickery and Deception</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Gender</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+      </div>
+
+      <h3 class="section-subtitle">Essay Topic Bank</h3>
+      <div class="accordion-group">
+        <details class="accordion"><summary>Noting and Misinterpretation</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Appearance and Identity</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Marriage and Love</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Gender, Misogyny and Patriarchy</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>The World of the Play and Comedy</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Deception</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+      </div>
+
+      <h3 class="section-subtitle">Final Exam Tips</h3>
+      <div class="essay-box">
+        <div class="essay-item">If the topic is identity / appearance and reality, use self-fashioning, refashioning, and being fashioned by others.</div>
+        <div class="essay-item">If the topic is deception, link it to dramatic irony and intention.</div>
+        <div class="essay-item">If the topic is honour, discuss how honour is gendered.</div>
+        <div class="essay-item">Most essays should focus on one or two major themes only.</div>
+      </div>
+    </section>
   </div>
 
   <script>
@@ -919,6 +1118,20 @@
       document.getElementById(pageId).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const flipped = card.classList.toggle('is-flipped');
+        card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+      });
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          card.click();
+        }
+      });
+    });
 
     let score = 0;
     const answeredQuestions = new WeakSet();
