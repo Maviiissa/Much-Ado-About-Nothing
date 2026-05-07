@@ -360,6 +360,54 @@
       line-height: 1.7;
     }
 
+
+    .section-subtitle {
+      margin: 34px 0 16px;
+      font-size: 1.5rem;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.7;
+      display: grid;
+      gap: 6px;
+    }
+
+    .act-summary-list {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.8;
+      display: grid;
+      gap: 8px;
+    }
+
+    .accordion-group {
+      display: grid;
+      gap: 14px;
+    }
+
+    .accordion {
+      background: rgba(255, 250, 240, 0.78);
+      border: 1px solid rgba(91, 58, 41, 0.14);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 18px rgba(91, 58, 41, 0.08);
+    }
+
+    .accordion summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .accordion-content {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+      line-height: 1.75;
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -408,6 +456,7 @@
     <button class="nav-button" onclick="showPage('characters')">Characters</button>
     <button class="nav-button" onclick="showPage('themes')">Themes</button>
     <button class="nav-button" onclick="showPage('revision')">Revision</button>
+    <button class="nav-button" onclick="showPage('exam-notes')">Exam Notes</button>
   </div>
 
   <div class="home-footer">
@@ -908,6 +957,87 @@
             <div class="essay-item">Add real illustrations, GIFs, or mini comic panels</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="exam-notes" class="page">
+      <div class="section-header">
+        <div>
+          <h2>Much Ado About Nothing — Exam Notes</h2>
+          <p>Key literary devices, themes, act summaries, essay topics, and sample essay plans for Literature revision.</p>
+        </div>
+        <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+      </div>
+
+      <h3 class="section-subtitle">Literary Devices</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h4>Motifs</h4>
+          <ul class="detail-list">
+            <li><strong>Definition:</strong> Motifs are recurring structures, contrasts, and literary devices that help develop major themes. Motif是不断出现的结构、意象、场面、动作、符号或文学手法。</li>
+            <li><strong>Short explanation:</strong> Public shaming highlights public judgement of honour; noting (pun with “Nothing”) includes watching, overhearing, writing, and misreading; fashion means shaping or being shaped in identity; dramatic irony works when audience knows what characters do not. 强调「名誉」的公众审判、“看到/记录/误读”的力量、“被看见的身份塑造”，以及观众先知带来的张力。</li>
+            <li><strong>Example:</strong> Hero is shamed as a “rotten orange” at the wedding; Beatrice/Benedick are tricked through staged overhearing; Dogberry’s watch records the conspiracy; characters self-fashion and refashion through language, masks, and behaviour.</li>
+            <li><strong>Essay use:</strong> Use motifs to argue that reputation in Messina is socially produced, identity is performed, and misunderstanding drives both comedy and crisis.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Symbols 象征</h4>
+          <ul class="detail-list">
+            <li><strong>Definition:</strong> Symbols are recurring objects/images that point beyond literal meaning to social values, fears, and power structures. 象征通过具体意象承载更深层主题。</li>
+            <li><strong>Short explanation:</strong> Key symbols include taming wild animals (social/romantic discipline), war imagery (relationships as battle), horns (male anxiety over cuckoldry), rotten orange (female reputation judged by appearance), chamber window (seeing ≠ understanding), and mask/masquerade (performance and hidden identity).</li>
+            <li><strong>Example:</strong> Beatrice’s “taming” language in 3.1; “...thy slander hath gone through and through her heart” (5.1) as weapon imagery; Claudio’s “rotten orange” (4.1); the chamber-window scene (3.2); and the masked ball exposing how identity is staged.</li>
+            <li><strong>Essay use:</strong> Link symbols to gendered honour, patriarchal control, and appearance vs reality: what looks true in public can be deeply false in moral terms.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Allusions 典故</h4>
+          <ul class="detail-list">
+            <li><strong>Definition:</strong> Allusions are brief references to mythological or biblical figures used to add satire, irony, and thematic depth. 典故通过文化联想增强人物塑造与主题表达。</li>
+            <li><strong>Short explanation:</strong> Hercules, Cupid, Adam, Diana, Prometheus, Atlas, Vulcan, Mars, and Cerberus are used to frame love, honour, masculinity, wit, chastity, and comic misuse of language.</li>
+            <li><strong>Example:</strong> Hercules (Benedick 2.3 / Beatrice 4.1), Cupid (Benedick 1.1/2.3, Beatrice 3.1), Adam (Don Pedro 1.1), Diana (Claudio 4.1), Prometheus (Benedick 5.1), Atlas (Benedick 1.1), Vulcan (Beatrice 2.1), Mars (Claudio 1.1), Cerberus (Dogberry 4.2).</li>
+            <li><strong>Essay use:</strong> Use allusions to show how characters borrow famous figures to perform identity, mock others, and reveal the play’s tension between heroic language and flawed human behaviour.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Summary of the Acts</h3>
+      <div class="card">
+        <h4>Comedy Convention Structure (Opening → Happy Ending)</h4>
+        <ul class="act-summary-list">
+          <li><strong>Act 1 (Opening):</strong> Dot-point placeholder for introduction to Messina, social dynamics, and early misunderstandings.</li>
+          <li><strong>Act 2 (Mistaken identity / Misunderstanding):</strong> Dot-point placeholder for masks, misreading signals, and setup for deception.</li>
+          <li><strong>Act 3 (Conflict builds):</strong> Dot-point placeholder for staged conversations and rising dramatic irony.</li>
+          <li><strong>Act 4 (Conflict peak):</strong> Dot-point placeholder for public shaming and crisis of honour.</li>
+          <li><strong>Act 5 (Resolution and Reconciliation → Happy Ending):</strong> Dot-point placeholder for truth revealed, restored relationships, and comic closure.</li>
+        </ul>
+      </div>
+
+      <h3 class="section-subtitle">Exam Themes</h3>
+      <div class="card-grid">
+        <div class="card"><h4>The World of the Play / Messina</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Love and Marriage</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Appearance vs Reality</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Honour</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Trickery and Deception</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+        <div class="card"><h4>Gender</h4><ul class="detail-list"><li><strong>Core argument:</strong> Placeholder.</li><li><strong>Key characters:</strong> Placeholder.</li><li><strong>Key scenes:</strong> Placeholder.</li><li><strong>Essay angle:</strong> Placeholder.</li></ul></div>
+      </div>
+
+      <h3 class="section-subtitle">Essay Topic Bank</h3>
+      <div class="accordion-group">
+        <details class="accordion"><summary>Noting and Misinterpretation</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Appearance and Identity</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Marriage and Love</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Gender, Misogyny and Patriarchy</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>The World of the Play and Comedy</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+        <details class="accordion"><summary>Deception</summary><div class="accordion-content"><div><strong>Possible exam questions:</strong> Placeholder.</div><div><strong>Sample thesis statement:</strong> Placeholder.</div><div><strong>Body paragraph plan:</strong> BP1 placeholder, BP2 placeholder, BP3 placeholder.</div><div><strong>Key theme links:</strong> Placeholder.</div></div></details>
+      </div>
+
+      <h3 class="section-subtitle">Final Exam Tips</h3>
+      <div class="essay-box">
+        <div class="essay-item">If the topic is identity / appearance and reality, use self-fashioning, refashioning, and being fashioned by others.</div>
+        <div class="essay-item">If the topic is deception, link it to dramatic irony and intention.</div>
+        <div class="essay-item">If the topic is honour, discuss how honour is gendered.</div>
+        <div class="essay-item">Most essays should focus on one or two major themes only.</div>
       </div>
     </section>
   </div>
