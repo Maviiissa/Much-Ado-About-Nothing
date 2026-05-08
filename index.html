@@ -1043,8 +1043,7 @@
         <div>
           <h2>Revision</h2>
           <p>
-            A study section with quiz questions and essay prompts. Later, you can add flashcards,
-            sample paragraphs, or downloadable notes.
+            A study section with quiz questions and essay prompts.
           </p>
         </div>
         <button class="back-btn" onclick="showPage('home')">← Back Home</button>
@@ -1053,38 +1052,86 @@
       <div class="revision-layout">
         <div class="essay-box">
           <h3>Quiz</h3>
-          <div class="score-box">Current Score: <span id="score">0</span> / 4</div>
+          <div class="score-box">Current Score: <span id="score">0</span> / 10</div>
 
           <div class="quiz-question">
             <h4>1. Who tricks Benedick into believing Beatrice loves him?</h4>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Don John and Borachio</button>
-            <button class="option-btn" onclick="checkAnswer(this, true)">Don Pedro, Leonato, and Claudio</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Hero and Ursula</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Dogberry and the Watch</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. Don John and Borachio</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">B. Don Pedro, Leonato, and Claudio</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">C. Hero and Ursula</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Dogberry and the Watch</button>
           </div>
 
           <div class="quiz-question">
             <h4>2. What causes Claudio to shame Hero at the wedding?</h4>
-            <button class="option-btn" onclick="checkAnswer(this, false)">A forged letter</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">A public confession</button>
-            <button class="option-btn" onclick="checkAnswer(this, true)">A staged deception at Hero’s window</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Beatrice’s accusation</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. A forged letter</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">B. A public confession</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">C. A staged deception at Hero’s window</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Beatrice’s accusation</button>
           </div>
 
           <div class="quiz-question">
             <h4>3. Which character is most associated with malapropisms?</h4>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Benedick</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Borachio</button>
-            <button class="option-btn" onclick="checkAnswer(this, true)">Dogberry</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">Antonio</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. Benedick</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">B. Borachio</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">C. Dogberry</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Antonio</button>
           </div>
 
           <div class="quiz-question">
-            <h4>4. What is one major contrast in the play’s two love stories?</h4>
-            <button class="option-btn" onclick="checkAnswer(this, false)">One is political and one is magical</button>
-            <button class="option-btn" onclick="checkAnswer(this, true)">One is idealised and one is witty and tested</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">One is secret and one is illegal</button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">One is tragic and one is supernatural</button>
+            <h4>4. What is one major contrast between the play’s two love stories?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. One is political and one is magical</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">B. One is idealised and one is witty and tested</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">C. One is tragic and one is supernatural</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. One happens before the war and one happens after death</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>5. What does Hero’s public shaming reveal about Messina’s society?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. Women have full control over their reputation</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">B. Male honour is separated from female chastity</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">C. Women’s reputation is controlled by male judgement</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Social class has no influence on truth</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>6. Which theme is most clearly shown through masks, mistaken identity, and false appearances?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, true)">A. Appearance vs Reality</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">B. Nature vs Civilisation</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">C. Childhood vs Adulthood</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Fate vs Free Will</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>7. Why does the audience usually celebrate Beatrice and Benedick’s relationship more than Claudio and Hero’s?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. Their relationship is based on money</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">B. Their relationship develops through wit, growth, and mutual recognition</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">C. They never argue with each other</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. They are the only married couple in the play</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>8. What is Don John’s main role in the play?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. Comic servant</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">B. Honest messenger</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">C. Plain-dealing villain</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Wise father figure</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>9. What does Benedick’s decision to challenge Claudio show?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. He values male friendship above justice</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">B. He becomes a gentleman who defends the vulnerable</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">C. He wants to gain political power</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. He no longer loves Beatrice</button>
+          </div>
+
+          <div class="quiz-question">
+            <h4>10. Which statement best describes deception in Much Ado About Nothing?</h4>
+            <button class="option-btn" onclick="checkAnswer(this, false)">A. All deception is evil and destructive</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">B. Deception only affects female characters</button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">C. Deception can be playful or harmful depending on intention and consequence</button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">D. Deception is completely ignored by the ending</button>
           </div>
         </div>
 
@@ -1098,13 +1145,6 @@
             <div class="essay-item">Compare the relationships of Claudio and Hero with Beatrice and Benedick.</div>
           </div>
 
-          <div class="essay-box">
-            <h3>Later Upgrades</h3>
-            <div class="essay-item">Add bilingual notes for each act and scene</div>
-            <div class="essay-item">Add flashcards for themes and quotes</div>
-            <div class="essay-item">Add model essay paragraphs</div>
-            <div class="essay-item">Add real illustrations, GIFs, or mini comic panels</div>
-          </div>
         </div>
       </div>
     </section>
